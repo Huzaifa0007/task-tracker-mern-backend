@@ -5,6 +5,7 @@ export const createTask = asyncHandler(async (req, res) => {
   const { title, description, priority, status, dueDate } = req.body;
 
   const task = await Task.create({
+    user: req.user._id,
     title,
     description,
     priority,
